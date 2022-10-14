@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.send("Hello World");
 })
 
-app.get('/get_items', (req, res) => {
+app.get('/fetch_data', (req, res) => {
     items.find({}, function(err, data) {res.send(data);});  
 })
 
