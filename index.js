@@ -5,7 +5,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 connectToMongo();
-let items;
+let items = mongoose.model('Item', new mongoose.Schema({name: String, cost: Number}), 'Items');
 
 const app = express();
 app.use(cors());
@@ -21,5 +21,4 @@ app.get('/fetch_data', (req, res) => {
 
 app.listen(port, ()=>{
     console.log(`Backend server up and running on port ${port}`);
-    items = mongoose.model('Item', new mongoose.Schema({name: String, cost: Number}), 'Items');
 })
